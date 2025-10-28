@@ -82,9 +82,9 @@ main, section { max-width: 100vw; overflow-x: clip; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px 40px;
+  padding: 20px 60px;
   /* Reserve space for absolutely positioned logo on large screens */
-  padding-left: clamp(120px, 30vw, 380px);
+  padding-left: 380px;
 }
 
 .logo {
@@ -101,21 +101,20 @@ main, section { max-width: 100vw; overflow-x: clip; }
 }
 
 .nav-menu {
-  position: relative;
-  z-index: 20;
+  position: relative; /* create stacking context */
+  z-index: 20;        /* ensure nav is on top of logo (if needed) */
   display: flex;
   align-items: center;
-  font-weight: lighter;
-  gap: clamp(12px, 2vw, 20px);
-  background-color: hsla(0, 0%, 100%, 0.19);
+  font-weight:lighter;
+  gap: 20px;
+  background-color: hsla(0, 0%, 100%, 0.19);/* 40% opacity */
   backdrop-filter: blur(10px);
-  padding: 12px clamp(20px, 3vw, 35px);
+  padding: 12px 35px;
   border-radius: 50px;
   font-family: poppins;
   font-size: 10px;
   max-width: 100%;
   flex-wrap: wrap;
-  justify-content: center;
 }
 
 .nav-link {
@@ -178,17 +177,19 @@ main, section { max-width: 100vw; overflow-x: clip; }
 .hero-content {
   position: relative;
   z-index: 10;
-  padding: clamp(40px, 10vh, 100px) clamp(20px, 8vw, 120px);
+  padding: 100px 120px;
   max-width: 1200px;
 }
 
 /* Site content below hero */
 .site-content {
   position: relative;
+  /* Avoid fixed heights so content can grow on small screens */
   max-height: none;
   background-color: hsla(0, 0%, 0%, 1);
   color: #ffffff;
-  padding: clamp(40px, 8vh, 80px) clamp(20px, 5vw, 60px);
+  padding: 80px 60px;
+  /* Clip absolute children that might hang outside on small screens */
   overflow-x: clip;
 }
 .stripe-section { overflow-x: clip; }
@@ -256,13 +257,13 @@ main, section { max-width: 100vw; overflow-x: clip; }
 .site-content .web-content{
   position: absolute;
   font-family: Alexandria;
-  top: var(--web-top, 40px);
+  top: var(--web-top, 40px); /* distance from top of .site-content */
   left: var(--web-left, 10%);
-  transform: translateX(-50%) translateY(128px);
+  transform: translateX(-50%);
   width: var(--web-width, 420px);
-  max-width: min(500px, 90vw);
-  padding: clamp(15px, 2vw, 25px) clamp(10px, 1.5vw, 15px);
-  font-size: clamp(9px, 1vw, 10px);
+  max-width: 500px;
+  padding: 25px 15px;
+  font-size: 10px;
   font-weight: 400;
   line-height: 1.6;
   letter-spacing: 0%;
@@ -270,10 +271,11 @@ main, section { max-width: 100vw; overflow-x: clip; }
   border-radius: 20px;
   overflow: hidden;
   background-color: hsla(0, 0%, 6%, 1);
-  border: 1px solid hsla(0,0%,30%,1);
+  border: 1px solid hsla(0,0%,30%,1),;
   gap: 24px;
   z-index: 50;
   pointer-events: auto;
+  transform: translateY(128px);
 }
 .site-content span{
   line-height: 140%;
@@ -284,13 +286,13 @@ main, section { max-width: 100vw; overflow-x: clip; }
 .site-content .web-anonymity{
   position: absolute;
   font-family: Alexandria;
-  top: var(--web-top, 40px);
+  top: var(--web-top, 40px); /* distance from top of .site-content */
   left: var(--web-left, 57%);
-  transform: translateX(-50%) translateY(185px);
+  transform: translateX(-50%);
   width: var(--web-width, 420px);
-  max-width: min(500px, 90vw);
-  padding: clamp(15px, 2vw, 25px) clamp(10px, 1.5vw, 15px);
-  font-size: clamp(9px, 1vw, 10px);
+  max-width: 500px;
+  padding: 25px 15px;
+  font-size: 10px;
   font-weight: 400;
   line-height: 1.6;
   letter-spacing: 0%;
@@ -298,21 +300,22 @@ main, section { max-width: 100vw; overflow-x: clip; }
   border-radius: 20px;
   overflow: hidden;
   background-color: hsla(0, 0%, 6%, 1);
-  border: 1px solid hsla(0,0%,30%,1);
+  border: 1px solid hsla(0,0%,30%,1),;
   gap: 24px;
   z-index: 50;
   pointer-events: auto;
+  transform: translateY(185px);
 }
 .site-content .web-centralisation{
   position: absolute;
   font-family: Alexandria;
-  top: var(--web-top, 40px);
+  top: var(--web-top, 40px); /* distance from top of .site-content */
   left: var(--web-left, 30%);
-  transform: translateX(-50%) translateY(395px);
+  transform: translateX(-50%);
   width: var(--web-width, 420px);
-  max-width: min(500px, 90vw);
-  padding: clamp(15px, 2vw, 25px) clamp(10px, 1.5vw, 15px);
-  font-size: clamp(9px, 1vw, 10px);
+  max-width: 500px;
+  padding: 25px 15px;
+  font-size: 10px;
   font-weight: 400;
   line-height: 1.6;
   letter-spacing: 0%;
@@ -320,10 +323,11 @@ main, section { max-width: 100vw; overflow-x: clip; }
   border-radius: 20px;
   overflow: hidden;
   background-color: hsla(0, 0%, 6%, 1);
-  border: 1px solid hsla(0,0%,30%,1);
+  border: 1px solid hsla(0,0%,30%,1),;
   gap: 24px;
   z-index: 50;
   pointer-events: auto;
+  transform: translateY(395px);
 }
 /* Optional smaller modifier to reduce size quickly */
 .site-content .web-content.small { --web-width: 320px; padding: 12px; }
@@ -343,10 +347,10 @@ main, section { max-width: 100vw; overflow-x: clip; }
   transition: transform 0.25s ease;
 }
 .hero-title {
-  font-size: clamp(36px, 7vw, 88px);
+  font-size: 88px;
   font-weight: 700;
   line-height: 1.1;
-  margin-bottom: clamp(20px, 3vh, 30px);
+  margin-bottom: 30px;
   position: relative;
 }
 
@@ -363,9 +367,9 @@ main, section { max-width: 100vw; overflow-x: clip; }
   position: absolute;
   bottom: -8px;
   left: 0;
-  width: min(680px, 90%);
+  width: 680px;
   height: 4px;
-  background: linear-gradient(90deg,
+  background: linear-gradient(90deg, 
     rgba(94, 179, 212, 0) 0%,
     rgba(94, 179, 212, 1) 15%,
     rgba(94, 179, 212, 1) 85%,
@@ -375,14 +379,13 @@ main, section { max-width: 100vw; overflow-x: clip; }
 }
 
 .hero-subtitle {
-  font-size: clamp(14px, 1.8vw, 18px);
-  line-height: 140%;
+  font-size: 18px;
+  line-height: 100%;
   color: hsla(166, 100%, 93%, 1);
-  margin-bottom: clamp(30px, 5vh, 50px);
+  margin-bottom: 50px;
   font-weight: 500;
   letter-spacing: -1%;
   font-family: poppins;
-  max-width: 100%;
 }
 .bg-background{
   background-color: hsla(0, 0%, 0%, 1);
@@ -392,29 +395,24 @@ main, section { max-width: 100vw; overflow-x: clip; }
   justify-content: center;
   font-family: Alexandria;
   font-weight: 700;
-  font-size: clamp(28px, 5vw, 48px);
-  line-height: 110%;
+  font-size: 48px;
+  line-height: 100%;
   letter-spacing: 0%;
   color: hsla(0, 0%, 100%, 1);
-  padding-top: clamp(20px, 4vh, 40px);
-  text-align: center;
-  flex-wrap: wrap;
+  padding-top: 40px;
 }
 .text-primary{
   color: hsla(212, 72%, 59%, 1);
 }
 .compliance-text{
-  padding-top: clamp(30px, 5vh, 55px);
+  padding-top: 55px;
   text-align: center;
   font-family: Inter;
   font-weight: lighter;
-  font-size: clamp(14px, 2vw, 20px);
+  font-size: 20px;
   line-height: 140%;
   letter-spacing: 0%;
   color: hsla(0, 0%, 100%, 0.77);
-  max-width: 100%;
-  padding-left: 16px;
-  padding-right: 16px;
 }
 /*
   Card group container (used by FeatureCard)
@@ -435,41 +433,43 @@ main, section { max-width: 100vw; overflow-x: clip; }
   width: 100%;
   display: flex;
   justify-content: center;
-  padding-top: clamp(40px, 7vh, 70px);
+  padding-top: 70px;
 }
 
 /* grid container: responsive 1 / 2 / 3 columns; centers items horizontally; aligns to top */
 .cards-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: clamp(1.5rem, 3vw, 2rem);
-  max-width: 1152px;
+  gap: 2rem;                 /* spacing between cards */
+  max-width: 1152px;         /* equivalent of tailwind max-w-6xl */
   width: 100%;
-  justify-items: center;
-  align-items: start;
-  padding: 0 clamp(0.75rem, 2vw, 1rem);
+  justify-items: center;     /* centers grid items horizontally */
+  align-items: start;        /* pin items to top of each row */
+  padding: 0 1rem;           /* small side padding on narrow screens */
 }
 .cards-wrapper-build {
   width: 100%;
   display: flex;
   justify-content: center;
-  padding-top: clamp(40px, 7vh, 70px);
+  padding-top: 70px;
   font-family: Alexandria;
-  font-size: clamp(14px, 1.6vw, 16px);
-  line-height: 120%;
+  font-size: 16px;
+  line-height: 100%;
   letter-spacing: 0%;
   color: hsla(0, 0%, 100%, 0.51);
-  gap: clamp(2rem, 5vw, 5rem);
-  flex-wrap: wrap;
 }
 .cards-grid-build{
-  display: flex;
-  flex-direction: column;
-  gap: clamp(1rem, 2vh, 1.5rem);
-  max-width: min(350px, 100%);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 5rem;                 /* spacing between cards */
+  max-width: 1152px;         /* equivalent of tailwind max-w-6xl */
   width: 100%;
+  justify-items: center;     /* centers grid items horizontally */
+  align-items: start;        /* pin items to top of each row */
+  padding: 0 1rem;
+  max-width: 350px;
   text-align: left;
-  padding: 0 clamp(10px, 2vw, 15px);
+  padding: 0px 15px;
 }
 .lead-text{
   color: hsla(0, 0%, 100%, 1);
@@ -558,42 +558,41 @@ main, section { max-width: 100vw; overflow-x: clip; }
   padding-top: 50px;
 }
 .built{
-  padding-top: clamp(20px, 4vh, 35px);
+  padding-top: 35px;
   font-family: Alexandria;
   font-weight: 400;
-  font-size: clamp(28px, 5vw, 48px);
-  line-height: 110%;
+  font-size: 48px;
+  line-height: 100%;
   letter-spacing: 0%;
 }
 .built-content{
   font-family: Alexandria;
   font-weight: 400;
-  font-size: clamp(22px, 4vw, 40px);
-  line-height: 120%;
+  font-size: 40px;
+  line-height: 100%;
   letter-spacing: 0%;
-  max-width: min(486px, 90%);
+  max-width: 486px;
   color: hsla(0, 0%, 100%, 0.5);
-  padding-top: clamp(8px, 1.5vh, 12px);
-  margin: 0 auto;
+  padding-top: 8px;
 }
 /* Stripe section styles (matches the screenshot) */
 /* Container spacing and dark background alignment */
 .stripe-section {
-  padding: clamp(40px, 8vh, 80px) clamp(16px, 2vw, 24px);
-  background: #000;
+  padding: 80px 16px;              /* py-20 */
+  background: #000;                /* matches overall page */
 }
 
 /* Two-column layout: copy screenshot with large left text and right feature grid */
 .stripe-grid {
-  max-width: 1280px;
+  max-width: 1280px;               /* ~max-w-7xl */
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr;
-  gap: clamp(32px, 5vw, 48px);
+  grid-template-columns: 1fr;      /* mobile */
+  gap: 48px;                       /* space between columns */
   align-items: center;
 }
 @media (min-width: 1024px) {
-  .stripe-grid {
+  .stripe-grid { 
     grid-template-columns: 1.1fr 1fr;
   }
 }
@@ -601,21 +600,21 @@ main, section { max-width: 100vw; overflow-x: clip; }
   color: hsla(0, 0%, 0%, 1);
 }
 /* Left column text styles */
-.stripe-left {
-  max-width: min(550px, 100%);
+.stripe-left { 
+  max-width: 550px; 
   }
 .stripe-title {
   font-family: "Audiowide", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, sans-serif;
   font-weight: 400;
-  font-size: clamp(28px, 4.5vw, 48px);
-  line-height: 110%;
+  font-size: clamp(32px, 4vw, 48px);
+  line-height: 100%;
   color: hsla(0, 0%, 100%, 1);
   letter-spacing: 0%;
 }
 .stripe-subtext {
-  max-width: min(380px, 100%);
-  margin-top: clamp(16px, 2vh, 20px);
-  font-size: clamp(14px, 2vw, 24px);
+  max-width: 380px;
+  margin-top: 20px;
+  font-size: clamp(16px, 2.2vw, 24px);
   line-height: 140%;
   color: hsla(0, 0%, 99%, 1);
   font-family: "Inter";
@@ -625,14 +624,14 @@ main, section { max-width: 100vw; overflow-x: clip; }
 
 /* Minty rounded pill button similar to screenshot */
 .explore-docs-btn {
-  margin-top: clamp(18px, 2.5vh, 22px);
+  margin-top: 22px;
   border-radius: 10px;
-  max-width: min(214px, 100%);
-  padding: clamp(8px, 1vh, 12px) clamp(16px, 2vw, 18px);
-  background: hsla(166, 100%, 93%, 1);
-  color: hsla(229, 19%, 22%, 1);
+  max-width: 214px;
+  padding: 3px 18px;  
+  background: hsla(166, 100%, 93%, 1);   /* mint */
+  color: hsla(229, 19%, 22%, 1);        /* dark text */
   font-weight: 700;
-  font-size: clamp(16px, 2vw, 20px);
+  font-size: 20px;
   line-height: 100%;
   letter-spacing: 0%;
 }
@@ -645,13 +644,14 @@ main, section { max-width: 100vw; overflow-x: clip; }
 .stripe-features {
   display: grid;
   grid-template-columns: 1fr;
-  gap: clamp(16px, 2vw, 20px);
+  gap: 20px;
   color: hsla(0, 0%, 0%, 1);
+  /* Align items to the left within each grid cell */
   justify-items: start;
 }
 .stripe-features h3{
   font-family: "Audiowide";
-  font-size: clamp(16px, 2vw, 20px);
+  font-size: 20px;
   line-height: 140%;
   letter-spacing: 0%;
   color: hsla(0, 0%, 0%, 1);
@@ -659,8 +659,8 @@ main, section { max-width: 100vw; overflow-x: clip; }
 .stripe-features p{
   font-family: "Alexandria";
   font-weight: 400;
-  font-size: clamp(13px, 1.6vw, 16px);
-  line-height: 120%;
+  font-size: 16px;
+  line-height: 100%;
   letter-spacing: 0%;
   color: hsla(0, 0%, 0%, 1);
 }
@@ -668,22 +668,24 @@ main, section { max-width: 100vw; overflow-x: clip; }
 
 /* Tile card style: bluish panel with soft radius like screenshot */
 .stripe-card {
-  background: hsla(229, 24%, 37%, 1);
+  background: hsla(229, 24%, 37%, 1);   /* bluish tint */
   border: 1px solid rgba(88, 105, 160, 0.35);
   border-radius: 18px;
-  padding: clamp(20px, 3vw, 28px);
+  padding: 28px;
   display: flex;
   flex-direction: column;
-  gap: clamp(8px, 1.2vw, 10px);
+  gap: 10px;
+  /* Place content at the bottom-left inside the card */
   justify-content: flex-end;
   align-items: flex-start;
   text-align: left;
   color: hsla(0, 0%, 0%, 1);
-  max-width: min(330px, 100%);
-  min-height: clamp(200px, 30vw, 330px);
+  /* Constrain card size as requested */
+  max-width: 330px;
+  max-height: 330px;
   overflow: hidden;
+  /* Don't stretch to full grid track width; keep left-aligned */
   justify-self: start;
-  width: 100%;
 }
 .stripe-text{
   color: hsla(0, 0%, 0%, 1);
@@ -822,8 +824,9 @@ main, section { max-width: 100vw; overflow-x: clip; }
 /* Quote screen styles added for compliance page (no Tailwind) */
 .quote-screen {
   position: relative;
-  min-height: clamp(280px, 40vh, 360px);
-  margin: clamp(24px, 5vh, 48px) clamp(12px, 2vw, 20px);
+  /* border removed as requested */
+  min-height: 360px;
+  margin: 48px 20px;
   overflow: hidden;
   border-radius: 6px;
   background-color: rgba(0,0,0,0.35);
@@ -845,7 +848,7 @@ main, section { max-width: 100vw; overflow-x: clip; }
   max-width: 1200px;
   height: 100%;
   margin: 0 auto;
-  padding: clamp(28px, 5vh, 56px) clamp(24px, 5vw, 64px);
+  padding: 56px 64px;
   color: #ffffff;
   display: flex;
   flex-direction: column;
@@ -853,17 +856,17 @@ main, section { max-width: 100vw; overflow-x: clip; }
 }
 
 .quote-mark {
-  font-size: clamp(40px, 6vw, 54px);
+  font-size: 54px;
   color: #5fb1ff;
-  margin-bottom: clamp(8px, 1.5vh, 12px);
+  margin-bottom: 12px;
   font-weight: 700;
 }
 
 .quote-text {
   font-family: Alexandria, 'Inter', sans-serif;
   font-weight: 700;
-  font-size: clamp(22px, 4vw, 40px);
-  line-height: 1.1;
+  font-size: 40px;
+  line-height: 1.02;
   color: #eaf6ff;
 }
 
@@ -872,26 +875,32 @@ main, section { max-width: 100vw; overflow-x: clip; }
 }
 
 .quote-attrib {
-  margin-top: clamp(16px, 2.5vh, 20px);
+  margin-top: 20px;
   text-align: right;
-  font-size: clamp(14px, 1.6vw, 16px);
+  font-size: 16px;
   color: rgba(207,233,255,0.9);
+}
+
+@media (max-width: 768px) {
+  .quote-container { padding: 28px 18px; }
+  .quote-text { font-size: 26px; }
+  .quote-mark { font-size: 40px; }
 }
 
 /* Passport / Learn panel styles (continuation screen) */
 .passport-section {
-  padding: clamp(32px, 5vh, 48px) clamp(16px, 2vw, 20px);
+  padding: 48px 20px;
   background: transparent;
 }
 
 .passport-panel {
   max-width: 1180px;
   margin: 0 auto;
-  background: #5aa1f0;
-  border-radius: clamp(20px, 3vw, 28px);
-  padding: clamp(28px, 4vw, 44px);
+  background: #5aa1f0; /* panel blue */
+  border-radius: 28px;
+  padding: 44px;
   display: flex;
-  gap: clamp(24px, 4vw, 36px);
+  gap: 36px;
   align-items: center;
   justify-content: space-between;
   box-shadow: 0 8px 30px rgba(22, 30, 37, 0.35);
@@ -905,40 +914,38 @@ main, section { max-width: 100vw; overflow-x: clip; }
 .passport-title {
   font-family: Alexandria, 'Audiowide', sans-serif;
   font-weight: 700;
-  font-size: clamp(28px, 4.5vw, 44px);
-  margin: 0 0 clamp(12px, 2vh, 18px) 0;
+  font-size: 44px;
+  margin: 0 0 18px 0;
   color: #071019;
-  line-height: 1.2;
 }
 
 .passport-desc {
   color: rgba(7,16,25,0.9);
-  font-size: clamp(13px, 1.5vw, 14px);
-  line-height: 1.6;
-  max-width: min(620px, 100%);
-  margin-bottom: clamp(14px, 2vh, 18px);
+  font-size: 14px;
+  line-height: 1.8;
+  max-width: 620px;
+  margin-bottom: 18px;
 }
 
 .cta-small {
   background: rgba(237, 255, 255, 0.92);
   color: #071019;
   border: none;
-  padding: clamp(10px, 1.2vh, 12px) clamp(16px, 2vw, 18px);
+  padding: 12px 18px;
   border-radius: 10px;
   font-weight: 700;
-  font-size: clamp(13px, 1.5vw, 15px);
   cursor: pointer;
 }
 
 .passport-art {
-  flex: 0 0 clamp(30%, 34%, 40%);
+  flex: 0 0 34%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .passport-art img {
-  width: clamp(180px, 25vw, 260px);
+  width: 260px;
   max-width: 100%;
   transform: rotate(-8deg) translateY(-6px);
   box-shadow: 0 18px 40px rgba(9,14,24,0.5);
@@ -946,26 +953,15 @@ main, section { max-width: 100vw; overflow-x: clip; }
 }
 
 @media (max-width: 960px) {
-  .passport-panel {
-    flex-direction: column-reverse;
-    padding: clamp(24px, 3vw, 28px);
-    border-radius: 20px;
-  }
-  .passport-art {
-    margin-bottom: 12px;
-    flex: 0 0 auto;
-  }
-  .passport-title {
-    font-size: clamp(24px, 6vw, 32px);
-  }
-  .passport-desc {
-    max-width: 100%;
-  }
+  .passport-panel { flex-direction: column-reverse; padding: 28px; border-radius: 20px; }
+  .passport-art { margin-bottom: 12px; }
+  .passport-title { font-size: 32px; }
+  .passport-desc { max-width: 100%; }
 }
 
 /* Join the Future of Identity Section */
 .join-future-section {
-  padding: clamp(40px, 8vh, 80px) 0 0 0;
+  padding: 80px 0 0 0;
   background: transparent;
   position: relative;
 }
@@ -973,7 +969,7 @@ main, section { max-width: 100vw; overflow-x: clip; }
 .join-future-container {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 0 clamp(16px, 2vw, 24px);
+  padding: 0 16px;
   position: relative;
   z-index: 10;
 }
@@ -989,13 +985,13 @@ main, section { max-width: 100vw; overflow-x: clip; }
 .join-future-card {
   background: #535672;
   color: #ffffff;
-  border-radius: clamp(24px, 4vw, 36px);
-  padding: clamp(32px, 5vw, 48px);
+  border-radius: 36px;
+  padding: 48px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  gap: clamp(20px, 3vw, 24px);
+  gap: 24px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
@@ -1005,19 +1001,19 @@ main, section { max-width: 100vw; overflow-x: clip; }
 
 .join-future-title {
   font-family: 'Audiowide', sans-serif;
-  font-size: clamp(28px, 5vw, 48px);
+  font-size: 48px;
   font-weight: 600;
   line-height: 1.1;
-  margin: 0 0 clamp(12px, 2vh, 16px) 0;
+  margin: 0 0 16px 0;
   color: #000000;
 }
 
 .join-future-subtitle {
   margin: 0;
-  font-size: clamp(14px, 1.6vw, 16px);
+  font-size: 16px;
   line-height: 1.5;
   color: rgba(255, 255, 255, 0.85);
-  max-width: min(560px, 100%);
+  max-width: 560px;
 }
 
 .join-future-input-wrapper {
@@ -1032,9 +1028,9 @@ main, section { max-width: 100vw; overflow-x: clip; }
   color: #ffffff;
   border: none;
   border-radius: 10px;
-  padding: clamp(12px, 1.5vh, 14px) clamp(20px, 2.5vw, 24px);
-  width: clamp(240px, 30vw, 320px);
-  font-size: clamp(13px, 1.5vw, 14px);
+  padding: 14px 24px;
+  width: 320px;
+  font-size: 14px;
   outline: none;
   box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
 }
@@ -1062,42 +1058,49 @@ main, section { max-width: 100vw; overflow-x: clip; }
 }
 
 .start-building-content {
-  padding: clamp(120px, 18vh, 180px) 0 clamp(64px, 10vh, 96px) 0;
+  padding: 180px 0 96px 0;
   text-align: center;
 }
 
 .start-building-title {
   font-family: 'Audiowide', sans-serif;
-  font-size: clamp(32px, 6vw, 64px);
+  font-size: 64px;
   font-weight: 700;
-  line-height: 1.1;
-  margin: 0 0 clamp(16px, 3vh, 24px) 0;
+  line-height: 1;
+  margin: 0 0 24px 0;
   color: #ffffff;
-  padding: 0 16px;
 }
 
 .start-building-subtitle {
   margin: 0 auto;
-  font-size: clamp(16px, 2vw, 20px);
+  font-size: 20px;
   line-height: 1.4;
   color: #071428;
-  max-width: min(768px, 90%);
-  padding: 0 16px;
+  max-width: 768px;
 }
 
 /* Responsive styles for Join Future section */
 @media (max-width: 768px) {
   .join-future-section {
-    padding: clamp(32px, 6vh, 40px) 0 0 0;
+    padding: 40px 0 0 0;
   }
 
   .join-future-wrapper {
-    transform: translateY(clamp(30%, 8vh, 40%));
+    transform: translateY(40%);
   }
 
   .join-future-card {
     flex-direction: column;
-    padding: clamp(24px, 4vw, 32px);
+    padding: 32px 24px;
+  }
+
+  .join-future-title {
+    font-size: 32px;
+  }
+
+  .join-future-subtitle {
+    font-size: 14px;
+    max-width: 100%;
   }
 
   .join-future-input-wrapper {
@@ -1109,57 +1112,17 @@ main, section { max-width: 100vw; overflow-x: clip; }
     width: 100%;
     max-width: 400px;
   }
-}
 
-/* Additional breakpoint for medium screens */
-@media (min-width: 769px) and (max-width: 1024px) {
-  .nav-menu {
-    gap: 16px;
-    padding: 10px 24px;
+  .start-building-content {
+    padding: 140px 0 64px 0;
   }
 
-  .header {
-    padding-left: 200px;
+  .start-building-title {
+    font-size: 36px;
   }
 
-  .hero-title {
-    font-size: clamp(56px, 8vw, 72px);
-  }
-
-  .cards-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-/* Small mobile optimization */
-@media (max-width: 480px) {
-  .nav-link {
-    font-size: 14px;
-  }
-
-  .cta-button {
-    font-size: 12px;
-    padding: 8px 14px;
-  }
-
-  .hero-title {
-    font-size: clamp(32px, 9vw, 48px);
-  }
-
-  .site-content .web-content,
-  .site-content .web-anonymity,
-  .site-content .web-centralisation {
-    font-size: 9px;
-    padding: 12px 10px;
-  }
-
-  .feature-card {
-    max-width: 100%;
-    padding: 1.25rem;
-  }
-
-  .stripe-card {
-    min-height: 180px;
-    padding: 18px;
+  .start-building-subtitle {
+    font-size: 16px;
+    padding: 0 16px;
   }
 }
