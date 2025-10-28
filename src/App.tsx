@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
-import Compliance from "./pages/Compliance";
+import Compliance from "./pages/compliance";
 
 const App = () => {
   return (
