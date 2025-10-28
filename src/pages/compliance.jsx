@@ -43,7 +43,7 @@ const Compliance = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <section className="container mx-auto px-4 py-20 md:py-32">
+      <section className="container mx-auto px-4 py-20 md:py-32 compliance-section">
         <div className="max-w-5xl mx-auto text-center space-y-8">
           <h1 className="text-5xl md:text-7xl font-bold tracking-tight suirify-heading">
             <span className="text-primary">SUlrify</span>
@@ -164,9 +164,9 @@ const Compliance = () => {
         <div className="quote-container">
           <div className="quote-mark">“</div>
           <div className="quote-text">
-            We Are Not Just Building A Startup—
+            <span className="quote-dif">We Are Not Just Building A Startup—
             <br />
-            We Are Crafting The <span className="highlight">Future Of Human</span>
+            We Are Crafting The</span> <span className="highlight">Future Of Human</span>
             <br />
             Identity, Trust, And Economic
             <br />
@@ -183,7 +183,7 @@ const Compliance = () => {
           <div className="passport-content">
             <h2 className="passport-title">Learn more about<br/>Sovereign Identity & Web3</h2>
             <p className="passport-desc">Build your knowledge of the new digital economy with SUIrify Learn. Understand everything from the basics of on-chain attestations to the future of compliant finance.</p>
-            <button className="cta-small">Build with suirify</button>
+            <button className="cta-button">Build with SUIrify</button>
           </div>
 
           <div className="passport-art">
