@@ -194,20 +194,20 @@ const Compliance = () => {
 
       {/* Join the Future of Identity - Newsletter / Subscribe Section */}
       <section className="join-future-section">
-        <div className="container mx-auto px-4">
-          <div className="relative max-w-6xl mx-auto -mt-4">
-            <div className="bg-[#4b4f72] text-white rounded-[36px] p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl">
-              <div className="md:flex-1">
-                <h3 className="text-4xl md:text-5xl font-semibold suirify-heading">Join the Future of Identity</h3>
-                <p className="mt-4 text-sm md:text-base text-gray-200 max-w-2xl">Keep up with the latest SUIrify news, protocol upgrades, and insights on compliant Web3.</p>
+        <div className="join-future-container">
+          <div className="join-future-wrapper">
+            <div className="join-future-card">
+              <div className="join-future-content">
+                <h3 className="join-future-title">Join the Future of Identity</h3>
+                <p className="join-future-subtitle">Keep up with the latest SUIrify news, protocol upgrades, and insights on compliant Web3.</p>
               </div>
 
-              <div className="md:flex-0 flex items-center justify-end w-full md:w-auto">
+              <div className="join-future-input-wrapper">
                 <input
                   type="email"
                   aria-label="Email address"
                   placeholder="Enter your email address"
-                  className="bg-[#1f2330] placeholder-gray-400 text-white rounded-full px-6 py-3 w-48 md:w-64 shadow-inner focus:outline-none"
+                  className="join-future-input"
                 />
               </div>
             </div>
@@ -215,11 +215,11 @@ const Compliance = () => {
         </div>
 
         {/* Full-width blue hero band that visually continues below the panel */}
-        <section className="start-building bg-[#4aa0f5] mt-6">
-          <div className="container mx-auto px-4">
-            <div className="py-24 text-center">
-              <h2 className="text-4xl md:text-6xl font-bold suirify-heading text-white">Start Building With SUIrify</h2>
-              <p className="mt-6 text-base md:text-lg text-[#071428] max-w-3xl mx-auto">Instant access to the foundational identity layer for compliant finance in Web3.</p>
+        <section className="start-building">
+          <div className="start-building-container">
+            <div className="start-building-content">
+              <h2 className="start-building-title">Start Building With SUIrify</h2>
+              <p className="start-building-subtitle">Instant access to the foundational identity layer for compliant finance in Web3.</p>
             </div>
           </div>
         </section>
